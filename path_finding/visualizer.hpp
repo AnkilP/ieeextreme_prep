@@ -20,7 +20,7 @@ visualizer::visualizer(int seed1, int seed2, int percentage){
     map(this->goal_state.first, this->goal_state.second) = 1;
 
     for(int i = 0; i < seed1 % (12*12); ++i){
-        
+                
     }
 }
 
