@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/batman/Documents/google_code_jam/ieeextreme_prep/path_finding/bfs.hpp
+string
+-
+search.hpp
+/home/batman/Documents/google_code_jam/ieeextreme_prep/path_finding/search.hpp
+queue
+-
+algorithm
+-
+vector
+-
+
+/home/batman/Documents/google_code_jam/ieeextreme_prep/path_finding/main.cpp
+bfs.hpp
+/home/batman/Documents/google_code_jam/ieeextreme_prep/path_finding/bfs.hpp
+
+/home/batman/Documents/google_code_jam/ieeextreme_prep/path_finding/search.hpp
+string
+-
+visualizer.hpp
+/home/batman/Documents/google_code_jam/ieeextreme_prep/path_finding/visualizer.hpp
+
+/home/batman/Documents/google_code_jam/ieeextreme_prep/path_finding/visualizer.hpp
+iostream
+-
+vector
+-
+utility
+-
+stdlib.h
+-
+time.h
+-
+memory
+-
+

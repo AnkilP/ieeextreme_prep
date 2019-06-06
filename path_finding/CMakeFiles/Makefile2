@@ -65,39 +65,39 @@ CMAKE_SOURCE_DIR = /home/batman/Documents/google_code_jam/ieeextreme_prep/path_f
 CMAKE_BINARY_DIR = /home/batman/Documents/google_code_jam/ieeextreme_prep/path_finding
 
 #=============================================================================
-# Target rules for target CMakeFiles/main.dir
+# Target rules for target CMakeFiles/pathers.dir
 
 # All Build rule for target.
-CMakeFiles/main.dir/all:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/depend
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/batman/Documents/google_code_jam/ieeextreme_prep/path_finding/CMakeFiles --progress-num=1,2 "Built target main"
-.PHONY : CMakeFiles/main.dir/all
+CMakeFiles/pathers.dir/all:
+	$(MAKE) -f CMakeFiles/pathers.dir/build.make CMakeFiles/pathers.dir/depend
+	$(MAKE) -f CMakeFiles/pathers.dir/build.make CMakeFiles/pathers.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/batman/Documents/google_code_jam/ieeextreme_prep/path_finding/CMakeFiles --progress-num=1,2 "Built target pathers"
+.PHONY : CMakeFiles/pathers.dir/all
 
 # Include target in all.
-all: CMakeFiles/main.dir/all
+all: CMakeFiles/pathers.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/main.dir/rule: cmake_check_build_system
+CMakeFiles/pathers.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/batman/Documents/google_code_jam/ieeextreme_prep/path_finding/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/main.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/pathers.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/batman/Documents/google_code_jam/ieeextreme_prep/path_finding/CMakeFiles 0
-.PHONY : CMakeFiles/main.dir/rule
+.PHONY : CMakeFiles/pathers.dir/rule
 
 # Convenience name for target.
-main: CMakeFiles/main.dir/rule
+pathers: CMakeFiles/pathers.dir/rule
 
-.PHONY : main
-
-# clean rule for target.
-CMakeFiles/main.dir/clean:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/clean
-.PHONY : CMakeFiles/main.dir/clean
+.PHONY : pathers
 
 # clean rule for target.
-clean: CMakeFiles/main.dir/clean
+CMakeFiles/pathers.dir/clean:
+	$(MAKE) -f CMakeFiles/pathers.dir/build.make CMakeFiles/pathers.dir/clean
+.PHONY : CMakeFiles/pathers.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/pathers.dir/clean
 
 .PHONY : clean
 
