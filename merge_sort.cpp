@@ -30,13 +30,13 @@ std::vector<T> merge_sort<T>::merge(std::vector<T> & sub1, std::vector<T> & sub2
     typename std::vector<T>::iterator sub2_it = sub2.begin();
 
     while(sub1_it != sub1.end() && sub2_it != sub2.end()){
-        if(*sub1_it >= *sub2_it){
-            ret.append(*sub1_it);
+        if(*sub1_it <= *sub2_it){
+            ret.emplace_back(*sub1_it);
             sub1_it++;
         }
         else{
-            while(*sub2_it > *sub1_it && sub2_it != sub2.end()){
-                ret.append(*sub2_it);
+            while(*sub2_it < *sub1_it && sub2_it != sub2.end()){
+                ret.emplace_back(*sub2_it);
                 sub2_it++;
             }
         }
@@ -46,16 +46,34 @@ std::vector<T> merge_sort<T>::merge(std::vector<T> & sub1, std::vector<T> & sub2
 
     if(sub1_it == sub1.end()){
         while(sub2_it != sub2.end()){
-            ret.append(*sub2_it);
+            ret.emplace_back(*sub2_it);
             sub2_it++;
         }
     }
     else{
         while(sub1_it != sub1.end()){
-            ret.append(*sub1_it);
+            ret.emplace_back(*sub1_it);
             sub1_it++;
         }
     }
 
     return ret;
+}
+
+template <class T>
+void merge_sort<T>::print_sort(){
+    std::vector<T> sorted_array(merge_sort<T>::sort(this->sorted));
+
+    for(auto it = sorted_array.begin(); it != sorted_array.end(); ++it){
+        std::cout << *it << " ";
+    }
+    std::cout << "\n";
+}
+
+int main(){
+
+    std::vector<int> n = {2,5,7,3,4,2,1,8,9,61};
+
+    merge_sort<int> ms(n);
+    ms.print_sort();
 }

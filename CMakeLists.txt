@@ -5,6 +5,6 @@ set(CMAKE_CXX_STANDARD 14)
 
 find_package(Eigen3 3.3 REQUIRED NO_MODULE)
 
-add_executable(ieeextreme_prep main.cpp simplex_method.cpp simplex_method.h)
+add_executable(ieeextreme_prep merge_sort.cpp)
 
 target_link_libraries(ieeextreme_prep Eigen3::Eigen)

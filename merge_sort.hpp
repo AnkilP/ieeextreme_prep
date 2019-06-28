@@ -3,6 +3,8 @@
 #include <vector>
 #include <functional>
 
+
+
 // template for an overloaded compare
 // template <class T>
 // bool operator<(const T & obj1, const T & obj2){
@@ -15,10 +17,11 @@ class merge_sort{
     std::vector<T> sorted;
     
     std::vector<T> merge(std::vector<T> &sub1, std::vector<T> &sub2);
+    std::vector<T> sort(std::vector<T> &arr);
 
     public:
 
         merge_sort(std::vector<T> & unsorted_array);
-        std::vector<T> sort(std::vector<T> &arr);
+        void print_sort();
 
 };
