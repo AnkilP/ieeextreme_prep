@@ -4,6 +4,8 @@
 #include <fstream>
 #include <string>
 #include <sstream>
+#include <memory>
+#include <type_traits>
 
 class CSVReader
 {
@@ -13,10 +15,16 @@ class CSVReader
         CSVReader(std::string filename) :
                 fileName(filename)
         { }
-        void get(std::vector<std::vector<int>> &);
+
+        void get(std::unique_ptr<std::vector<std::vector<int>>> &);
+        void set(std::string & fileName);
 };
 
-void CSVReader::get(std::vector<std::vector<int>> & dataList)
+void CSVReader::set(std::string & fileName){
+    this->fileName = fileName;
+}
+
+void CSVReader::get(std::unique_ptr<std::vector<std::vector<int>>> & dataList)
 {
 	std::ifstream file(fileName);
  
@@ -32,7 +40,7 @@ void CSVReader::get(std::vector<std::vector<int>> & dataList)
             parsedRow.push_back(std::stoi(cell));
         }
 
-        dataList.push_back(parsedRow);
+        dataList->push_back(parsedRow);
     }
 	// Close the File
 	file.close();
@@ -41,8 +49,26 @@ void CSVReader::get(std::vector<std::vector<int>> & dataList)
 
 class tabu_search{
 
-    public:
-        tabu_search(std::string fileName, );
+    std::unique_ptr<CSVReader> flowRead = std::make_unique<CSVReader>("Flow.csv");
+    std::unique_ptr<CSVReader> distanceRead = std::make_unique<CSVReader>("Distance.csv");
 
+    std::unique_ptr<std::vector<std::vector<int>>> flowMatrix = std::make_unique<std::vector<std::vector<int> > >();
+    std::unique_ptr<std::vector<std::vector<int>>> DistanceMatrix = std::make_unique<std::vector<std::vector<int> > >();
+
+    int tabu_list_size;
+    std::unique_ptr<std::vector<int> > state = std::make_unique<std::vector<int>>(20);
+
+    std::unique_ptr<std::vector<std::vector<int> > > recency_frequency_matrix = std::make_unique<std::vector<std::vector<int> > >(20, std::vector<int>(20, 0));
+    
+    int best_score;
+
+    int find_cost();
+
+    template <typename T>
+    void print_matrix(const T& matrix);
+
+    public:
+        tabu_search(const int & tabu_list);
+        void move(const int & index1, const int & index2);
 
 };
