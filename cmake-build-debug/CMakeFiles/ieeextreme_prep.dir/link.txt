@@ -1,1 +1,0 @@
-/usr/bin/c++  -g   CMakeFiles/ieeextreme_prep.dir/main.cpp.o CMakeFiles/ieeextreme_prep.dir/simplex_method.cpp.o  -o ieeextreme_prep 

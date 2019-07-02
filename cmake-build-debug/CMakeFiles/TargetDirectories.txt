@@ -1,3 +1,0 @@
-/home/batman/CLionProjects/ieeextreme_prep/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/batman/CLionProjects/ieeextreme_prep/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/batman/CLionProjects/ieeextreme_prep/cmake-build-debug/CMakeFiles/ieeextreme_prep.dir
