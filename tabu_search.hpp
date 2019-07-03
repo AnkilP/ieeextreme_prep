@@ -8,6 +8,8 @@
 #include <type_traits>
 #include <map>
 #include <queue>
+#include <ctime>
+#include <stdlib.h> 
 
 class CSVReader
 {
@@ -52,19 +54,19 @@ class neighbour{
 
     int index1;
     int index2;
-    int cost;
+    int spcost;
 
     public:
         neighbour(int i, int j, int cost){
             index1 = i;
-            cost = cost;
+            spcost = cost;
             index2 = j;
         }
 
         neighbour() = default;
 
         int getCost() const {
-            return this->cost;
+            return this->spcost;
         }
 
         int getIndex1(){
@@ -96,15 +98,18 @@ class tabu_search{
     std::vector<int> state = std::vector<int>(20, 0);
 
     std::map<std::vector<int>, int> recency_frequency_matrix;
+    std::map<std::vector<int>, int> frequency_matrix;
     
     int best_score;
     int current_state_score;
+    int numIter;
 
     int find_cost();
     int find_cost(const std::vector<int> &);
     void swap(std::vector<int> & state, const int & index1, const int & index2);
     bool try_add(const std::vector<int> &);
     void print_recency_matrix();
+    // static int myrandom(int);
 
     public:
         tabu_search(const int & tabu_list);
