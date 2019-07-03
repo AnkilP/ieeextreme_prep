@@ -6,6 +6,8 @@
 #include <sstream>
 #include <memory>
 #include <type_traits>
+#include <map>
+#include <queue>
 
 class CSVReader
 {
@@ -16,7 +18,7 @@ class CSVReader
                 fileName(filename)
         { }
 
-        void get(std::unique_ptr<std::vector<std::vector<int>>> &);
+        void get(std::vector<std::vector<int>>&);
         void set(std::string & fileName);
 };
 
@@ -24,7 +26,7 @@ void CSVReader::set(std::string & fileName){
     this->fileName = fileName;
 }
 
-void CSVReader::get(std::unique_ptr<std::vector<std::vector<int>>> & dataList)
+void CSVReader::get(std::vector<std::vector<int>> & dataList)
 {
 	std::ifstream file(fileName);
  
@@ -37,38 +39,79 @@ void CSVReader::get(std::unique_ptr<std::vector<std::vector<int>>> & dataList)
         std::vector<int> parsedRow;
         while(std::getline(lineStream,cell,','))
         {
-            parsedRow.push_back(std::stoi(cell));
+            parsedRow.emplace_back(std::stoi(cell));
         }
 
-        dataList->push_back(parsedRow);
+        dataList.emplace_back(parsedRow);
     }
 	// Close the File
 	file.close();
 }
 
+class neighbour{
+
+    int index1;
+    int index2;
+    int cost;
+
+    public:
+        neighbour(int i, int j, int cost){
+            index1 = i;
+            cost = cost;
+            index2 = j;
+        }
+
+        neighbour() = default;
+
+        int getCost() const {
+            return this->cost;
+        }
+
+        int getIndex1(){
+            return this->index1;
+        }
+
+        int getIndex2(){
+            return this->index2;
+        }
+};
+
+class compareNeighbours{
+    public: 
+        int operator() (const neighbour& p1, const neighbour& p2) 
+        { 
+            return p1.getCost() > p2.getCost(); 
+        } 
+};
 
 class tabu_search{
 
-    std::unique_ptr<CSVReader> flowRead = std::make_unique<CSVReader>("Flow.csv");
-    std::unique_ptr<CSVReader> distanceRead = std::make_unique<CSVReader>("Distance.csv");
+    CSVReader flowRead = CSVReader("/home/batman/Documents/google_code_jam/ieeextreme_prep/Flow.csv");
+    CSVReader distanceRead = CSVReader("/home/batman/Documents/google_code_jam/ieeextreme_prep/Distance.csv");
 
-    std::unique_ptr<std::vector<std::vector<int>>> flowMatrix = std::make_unique<std::vector<std::vector<int> > >();
-    std::unique_ptr<std::vector<std::vector<int>>> DistanceMatrix = std::make_unique<std::vector<std::vector<int> > >();
+    std::vector<std::vector<int>> flowMatrix;
+    std::vector<std::vector<int>> DistanceMatrix;
 
     int tabu_list_size;
-    std::unique_ptr<std::vector<int> > state = std::make_unique<std::vector<int>>(20);
+    std::vector<int> state = std::vector<int>(20, 0);
 
-    std::unique_ptr<std::vector<std::vector<int> > > recency_frequency_matrix = std::make_unique<std::vector<std::vector<int> > >(20, std::vector<int>(20, 0));
+    std::map<std::vector<int>, int> recency_frequency_matrix;
     
     int best_score;
+    int current_state_score;
 
     int find_cost();
-
-    template <typename T>
-    void print_matrix(const T& matrix);
+    int find_cost(const std::vector<int> &);
+    void swap(std::vector<int> & state, const int & index1, const int & index2);
+    bool try_add(const std::vector<int> &);
+    void print_recency_matrix();
 
     public:
         tabu_search(const int & tabu_list);
-        void move(const int & index1, const int & index2);
+        void move();
+        void solve();
+        void print_matrix(const std::vector<std::vector<int>> & matrix);
+        void print_matrix(const std::vector<int> & matrix);
 
+        void test_cases();
 };
