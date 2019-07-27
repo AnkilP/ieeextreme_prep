@@ -123,32 +123,32 @@ ieeextreme_prep/fast:
 	$(MAKE) -f CMakeFiles/ieeextreme_prep.dir/build.make CMakeFiles/ieeextreme_prep.dir/build
 .PHONY : ieeextreme_prep/fast
 
-merge_sort.o: merge_sort.cpp.o
+checkBST.o: checkBST.cpp.o
 
-.PHONY : merge_sort.o
+.PHONY : checkBST.o
 
 # target to build an object file
-merge_sort.cpp.o:
-	$(MAKE) -f CMakeFiles/ieeextreme_prep.dir/build.make CMakeFiles/ieeextreme_prep.dir/merge_sort.cpp.o
-.PHONY : merge_sort.cpp.o
+checkBST.cpp.o:
+	$(MAKE) -f CMakeFiles/ieeextreme_prep.dir/build.make CMakeFiles/ieeextreme_prep.dir/checkBST.cpp.o
+.PHONY : checkBST.cpp.o
 
-merge_sort.i: merge_sort.cpp.i
+checkBST.i: checkBST.cpp.i
 
-.PHONY : merge_sort.i
+.PHONY : checkBST.i
 
 # target to preprocess a source file
-merge_sort.cpp.i:
-	$(MAKE) -f CMakeFiles/ieeextreme_prep.dir/build.make CMakeFiles/ieeextreme_prep.dir/merge_sort.cpp.i
-.PHONY : merge_sort.cpp.i
+checkBST.cpp.i:
+	$(MAKE) -f CMakeFiles/ieeextreme_prep.dir/build.make CMakeFiles/ieeextreme_prep.dir/checkBST.cpp.i
+.PHONY : checkBST.cpp.i
 
-merge_sort.s: merge_sort.cpp.s
+checkBST.s: checkBST.cpp.s
 
-.PHONY : merge_sort.s
+.PHONY : checkBST.s
 
 # target to generate assembly for a file
-merge_sort.cpp.s:
-	$(MAKE) -f CMakeFiles/ieeextreme_prep.dir/build.make CMakeFiles/ieeextreme_prep.dir/merge_sort.cpp.s
-.PHONY : merge_sort.cpp.s
+checkBST.cpp.s:
+	$(MAKE) -f CMakeFiles/ieeextreme_prep.dir/build.make CMakeFiles/ieeextreme_prep.dir/checkBST.cpp.s
+.PHONY : checkBST.cpp.s
 
 # Help Target
 help:
@@ -159,9 +159,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... ieeextreme_prep"
 	@echo "... edit_cache"
-	@echo "... merge_sort.o"
-	@echo "... merge_sort.i"
-	@echo "... merge_sort.s"
+	@echo "... checkBST.o"
+	@echo "... checkBST.i"
+	@echo "... checkBST.s"
 .PHONY : help
 
 
