@@ -48,6 +48,19 @@
         "utility": "cpp",
         "variant": "cpp",
         "algorithm": "cpp",
-        "set": "cpp"
+        "set": "cpp",
+        "csignal": "cpp",
+        "hash_map": "cpp",
+        "hash_set": "cpp",
+        "cinttypes": "cpp",
+        "complex": "cpp",
+        "condition_variable": "cpp",
+        "unordered_set": "cpp",
+        "iterator": "cpp",
+        "memory_resource": "cpp",
+        "random": "cpp",
+        "mutex": "cpp",
+        "thread": "cpp",
+        "valarray": "cpp"
     }
 }
